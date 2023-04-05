@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="display: flex;">
+    <div>
+        <canvas id="grafico_barra" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+
+    <div>
+        <canvas id="grafico_linha" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const labelsGraficoBarra = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho'
+    ]
+
+    const dataGraficoBarra = {
+        labels: labelsGraficoBarra,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(235, 52, 86)',
+            data: [22, 24, 27, 23, 20, 18],
+            borderWidth: 1
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: 'rgb(52, 168, 235)',
+            data: [90, 89, 93, 87, 88, 82],
+            borderWidth: 1
+        }]
+    }
+    
+    const configGraficoBarra = {
+        type: 'bar',
+        data: dataGraficoBarra,
+        options: {}
+    }
+
+    const labelsGraficoLinha = [
+        '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'
+    ]
+
+    const dataGraficoLinha = {
+            labels: labelsGraficoLinha,
+            datasets: [{
+                label: 'Temperatura Média',
+                backgroundColor: 'rgb(235, 52, 86)',
+                data: [30, 29, 28, 25, 22, 23],
+                borderWidth: 1
+            },
+            {
+                label: 'Umidade Média',
+                backgroundColor: 'rgb(52, 168, 235)',
+                data: [80, 82, 80, 85, 80, 83],
+                borderWidth: 1
+            }]
+        }
+
+        const configGraficoLinha = {
+            type: 'line',
+            data: dataGraficoLinha,
+            options: {}
+        }
+
+</script>
+
+<script>
+    const graficoLinha = new Chart(
+        document.getElementById("grafico_linha"),
+        configGraficoLinha
+    )
+
+    const graficoBarra = new Chart(
+        document.getElementById("grafico_barra"),
+        configGraficoBarra
+    )
+</script>
